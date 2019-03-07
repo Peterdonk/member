@@ -1,0 +1,4 @@
+Django==2.1.7
+django-inspectdb==0.2.1
+mysqlclient==1.4.2
+pytz==2018.9
