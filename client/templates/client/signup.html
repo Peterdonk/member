@@ -1,113 +1,105 @@
-{% extends "base.html" %}
-
+{% extends "registration_base.html" %}
 {% load staticfiles %}
 
-
 {% block title %}
-<title>Login</title>
+<title>SignUp</title>
 {% endblock title %}
 
 {% block bodyContent %}
 
+<!-- main -->
+<div class="main-agile">
+    <div class="content" style="width:70% !important">
+        <div class="top-grids">
+            <div class="top-grids-left">
+                <div class="signin-form-grid">
+                    <div class="signin-form">
+                        <div style="text-align:center;margin:10px"><img src="{% static 'client/landing-assets/img/log.png' %}"
+                                height="75px"></div>
+                        <h2>Sign Up Form</h2>
+                        <form id="signin" action="#" method="post">
+                            <div class="row mb-2 mt-2">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-3"><label for="" class="signup_label">Individual</label></div>
+                                        <div class="col-md-3"><input type="radio" name="rad_status" class="form-control rad_status"
+                                                checked="checked" value="individual"></div>
+                                        <div class="col-md-3"><label for="" class="signup_label">Organization</label></div>
+                                        <div class="col-md-3"><input type="radio" name="rad_status" class="form-control  rad_status"
+                                                value="organization"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-2 mt-2">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="client_name" placeholder="Full Name"
+                                        id="client_name">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="client_telephone" placeholder="Telephone">
+                                </div>
+                            </div>
+                            <div class="row mb-2 mt-2" id="org">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="client_contact_person" placeholder="Contact Person"
+                                        id="contact_person">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="client_contact_telephone" placeholder="Telephone"
+                                        id="contact_telephone">
+                                </div>
+                            </div>
+                            <div class="row mb-2 mt-2">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="client_email" placeholder="Email">
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control sign_up_select" name="client_service">
+                                        <option disabled="disabled" selected="selected">Choose Service</option>
+                                        <option>Web Design</option>
+                                        <option>Networking</option>
+                                        <option>Consultation</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-2 mt-2">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="client_digital_address" placeholder="Digital Address">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="password" class="form-control" name="client_password" placeholder="Password">
+                                </div>
+                            </div>
 
-<div class="wrapper" style="background-image: url({% static 'client/images/bg-registration-form-2.jpg'%})">
-			<div class="inner" style="padding-bottom: 0px !important;padding-top: 70px">
-				<form method="post">
-					{% csrf_token %}
-					<div style="text-align: center;height: 80px !important" class="member_holder"><img src="{% static 'client/landing-assets/img/log_2.png' %}" alt="Logo" height="70px"></div>
-					<h3>Registration Form</h3>
-					<!-- <div class="form-group"> -->
+                            <input type="submit" value="SIGN IN">
+                        </form>
+                    </div>
+                    <div class="signin-firm">
+                        <div class="social-grids">
+                            <div class="social-text" style="width:100%;float:center">
+                                <div class="text-center" id="down_text"><a href="#">Already Have An Account
+                                        ..SignIn</a></div>
+                            </div>
 
-						{{form.as_p}}
-						
-					<!-- 		<label for="">Individual</label>
-							<input type="radio" name="rad_status" class="form-control rad_status" checked="checked" value="individual">
-						
-						
-							<label for="">Organization</label>
-							<input type="radio" name="rad_status" class="form-control  rad_status" value="organization">
-						
-					</div>
-					<br/>
-					<div class="form-group" >
-						<div class="form-wrapper">
-							<label for="" id="lbl_org_name">Organization Name</label>
-							<label for="" id="lbl_full_name">Full Name</label>
-							<input type="text" class="form-control">
-						</div>
-						<div class="form-wrapper">
-							<label for="">Telephone</label>
-							<input type="text" class="form-control">
-						</div>
-					</div>
+                            <div class="clear"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"> </div>
+    </div>
+</div>
+<div class="copyright">
+    <p> © 2019 . All rights reserved | A Product of <a href="snetgh.net">Step Network</a></p>
+</div>
+</div>
+<!-- //main -->
 
+<script src="{% static 'client/registration-assets/js/jquery.js' %}"></script>
+<script src="{% static 'client/registration-assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'client/registration-assets/js/custom_js.js' %}"></script>
 
-					<div class="form-group" id="organization_contact">
-						<div class="form-wrapper">
-							<label for="">Contact Person</label>
-							<input type="text" class="form-control">
-						</div>
-						<div class="form-wrapper">
-							<label for="">Contact Telephone</label>
-							<input type="text" class="form-control">
-						</div>
-					</div>
+{% block javascriptFiles %}
 
-
-					<div class="form-wrapper">
-						<label for="">Email</label>
-						<input type="text" class="form-control">
-					</div>
-					<div class="form-group">
-						<div class="form-wrapper">
-							<label for="">Service</label>
-							<select class="form-control">
-								<option disabled="disabled" selected="selected">Select Service</option>
-								<option>Web Design</option>
-								<option>Networking</option>
-								<option>Consultation</option>
-							</select>
-						</div>
-						<div class="form-wrapper">
-							<label for="">Digital Address</label>
-							<input type="text" class="form-control">
-						</div>
-					</div>
-					<div class="form-group">
-					<div class="form-wrapper">
-						<label for="">Password</label>
-						<input type="password" class="form-control">
-					</div>
-					<div class="form-wrapper">
-						<label for="">Confirm Password</label>
-						<input type="password" class="form-control">
-					</div>
-				</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox"> I caccept the Terms of Use & Privacy Policy.
-							<span class="checkmark"></span>
-						</label>
-					</div> -->
-					<button type="submit">Register Now</button>
-					<br>
-					<div style="text-align: center;"><span>Already have an <span style="font-weight: bold;">account - <a href="/client/login">Sign In </a></span> </span></div>
-					<br>
-					<br>
-				</form>
-			</div>
-		</div>
-
-		{% block javascriptFiles %}
-
-		<script type="text/javascript" src="{% static 'client/js/custom_js.js' %}"></script>
-
-		{% endblock javascriptFiles %}
-
-
-	
-
-{% endblock bodyContent %}
-
-
-
+{% endblock javascriptFiles %} {% endblock bodyContent %}

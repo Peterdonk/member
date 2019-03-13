@@ -1,0 +1,285 @@
+{% extends "main_base.html" %}
+
+{% load static %}
+
+{% block pageCss %}
+<link rel="stylesheet" href="{% static 'client/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css' %}" />
+<link rel="stylesheet" href="{% static 'client/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css' %}" />
+<link rel="stylesheet" href="{% static 'client/assets/vendor/morris/morris.css' %}" />
+{% endblock pageCss %}
+
+{% block title %}
+<title>Dashboard</title>
+{% endblock title %}
+
+{% block bodyContent %}
+
+
+<section role="main" class="content-body">
+   <header class="page-header">
+      <h2>Basic Forms</h2>
+
+      <div class="right-wrapper pull-right">
+         <ol class="breadcrumbs">
+            <li>
+               <a href="index.html">
+                  <i class="fa fa-home"></i>
+               </a>
+            </li>
+            <li><span>Forms</span></li>
+            <li><span>Basic</span></li>
+         </ol>
+
+         <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+      </div>
+   </header>
+
+   <!-- start: page -->
+   <div class="row">
+      <div class="col-lg-12">
+         <section class="panel">
+            <header class="panel-heading">
+               <div class="panel-actions">
+
+                  <a href="#" class="fa fa-caret-down" title="Hide Items"></a>
+                  <a href="#" class="fa fa-times" title="Close This"></a>
+               </div>
+
+               <h2 class="panel-title">Form Elements</h2>
+            </header>
+            <div class="panel-body">
+               <h4>REGISTRATION SUMMARY</h4>
+               <hr style="">
+
+               <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-2 col-form-label" style="font-weight:bold">Date
+                     Registered</label>
+                  <div class="col-sm-8">
+                     <span>18-Dec-2019</span>
+                  </div>
+               </div>
+
+               <hr>
+
+               <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-2 col-form-label" style="font-weight:bold">Service
+                  </label>
+                  <div class="col-sm-8">
+                     <span>Web Designing</span>
+                  </div>
+               </div>
+
+               <hr>
+
+               <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-2 col-form-label" style="font-weight:bold">Job Description
+                  </label>
+                  <div class="col-sm-8">
+                     <span>Design Bridal Website For Mark John</span>
+                  </div>
+               </div>
+
+               <hr>
+
+               <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-2 col-form-label" style="font-weight:bold">Total Amount
+                     Charged
+                  </label>
+                  <div class="col-sm-8"><span>GH&nbsp;<img src="assets/images/cedi.png" width="13px" height="20px">&nbsp;<span
+                           style="color:#d2322d;font-weight: bold">5000</span>
+                        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; </span>
+
+                     <span>Total
+                        Amount Paid : GH&nbsp;<span>&nbsp;<img src="assets/images/cedi.png" width="13px" height="20px">&nbsp;<span
+                              style="color:#d2322d;font-weight: bold">4000</span></span></span>
+                     &nbsp;&nbsp;&nbsp;
+                     |&nbsp;&nbsp;
+                     <span>Total
+                        Amount
+                        Remaining : GH&nbsp;<span>&nbsp;<img src="assets/images/cedi.png" width="13px" height="20px">&nbsp;<span
+                              style="color:#d2322d;font-weight: bold">500</span></span></span>
+                  </div>
+
+               </div>
+
+               <hr>
+
+               <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-2 col-form-label" style="font-weight:bold">Initial Deposit
+                  </label>
+                  <div class="col-sm-8">
+                     <span>Due Date : <strong style="color:#d2322d">12/12/2019</strong></span>&nbsp;
+                     | &nbsp;
+                     <span>Amount Expected : </span> GH&nbsp;<span style="color:#d2322d;font-weight: bold"><img src="assets/images/cedi.png"
+                           width="13px" height="20px">&nbsp;1000
+                     </span>
+                     &nbsp;&nbsp; | &nbsp;<span>Status:
+                        &nbsp;</span><label class="label label-success">Payed</label>
+                  </div>
+               </div>
+
+               <hr>
+
+               <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-2 col-form-label" style="font-weight:bold">Payment History
+                  </label>
+                  <div class="table-responsive text-nowrap">
+
+                     <table class="table">
+                        <thead>
+                           <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Date</th>
+                              <th scope="col">Service</th>
+                              <th scope="col">Amount Paid</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <th scope="row">1</th>
+                              <td>12-Jan-2019</td>
+                              <td>Website Designing</td>
+                              <td>100</td>
+
+
+                           </tr>
+                           <tr>
+                              <th scope="row">2</th>
+                              <td>15-Jan-2019</td>
+                              <td>Website Designing</td>
+                              <td>100</td>
+
+                           </tr>
+                           <tr>
+                              <th scope="row">3</th>
+                              <td>20-Feb-2019</td>
+                              <td>Website Designing</td>
+                              <td>100</td>
+
+                           </tr>
+                        </tbody>
+                     </table>
+
+                  </div>
+               </div>
+
+            </div>
+         </section>
+
+      </div>
+   </div>
+
+</section>
+</div>
+
+<aside id="sidebar-right" class="sidebar-right">
+   <div class="nano">
+      <div class="nano-content">
+         <a href="#" class="mobile-close visible-xs">
+            Collapse <i class="fa fa-chevron-right"></i>
+         </a>
+
+         <div class="sidebar-right-wrapper">
+
+            <div class="sidebar-widget widget-calendar">
+               <h6>Upcoming Tasks</h6>
+               <div data-plugin-datepicker data-plugin-skin="dark"></div>
+
+               <ul>
+                  <li>
+                     <time datetime="2014-04-19T00:00+00:00">04/19/2014</time>
+                     <span>Company Meeting</span>
+                  </li>
+               </ul>
+            </div>
+
+            <div class="sidebar-widget widget-friends">
+               <h6>Friends</h6>
+               <ul>
+                  <li class="status-online">
+                     <figure class="profile-picture">
+                        <img src="assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                     </figure>
+                     <div class="profile-info">
+                        <span class="name">Joseph Doe Junior</span>
+                        <span class="title">Hey, how are you?</span>
+                     </div>
+                  </li>
+                  <li class="status-online">
+                     <figure class="profile-picture">
+                        <img src="assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                     </figure>
+                     <div class="profile-info">
+                        <span class="name">Joseph Doe Junior</span>
+                        <span class="title">Hey, how are you?</span>
+                     </div>
+                  </li>
+                  <li class="status-offline">
+                     <figure class="profile-picture">
+                        <img src="assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                     </figure>
+                     <div class="profile-info">
+                        <span class="name">Joseph Doe Junior</span>
+                        <span class="title">Hey, how are you?</span>
+                     </div>
+                  </li>
+                  <li class="status-offline">
+                     <figure class="profile-picture">
+                        <img src="assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                     </figure>
+                     <div class="profile-info">
+                        <span class="name">Joseph Doe Junior</span>
+                        <span class="title">Hey, how are you?</span>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</aside>
+</section>
+
+
+<!-- Preloader -->
+<div id="preloader">
+   <div class="sk-cube-grid">
+      <div class="sk-cube sk-cube1"></div>
+      <div class="sk-cube sk-cube2"></div>
+      <div class="sk-cube sk-cube3"></div>
+      <div class="sk-cube sk-cube4"></div>
+      <div class="sk-cube sk-cube5"></div>
+      <div class="sk-cube sk-cube6"></div>
+      <div class="sk-cube sk-cube7"></div>
+      <div class="sk-cube sk-cube8"></div>
+      <div class="sk-cube sk-cube9"></div>
+   </div>
+</div>
+<!-- /Preloader -->
+
+{% endblock bodyContent %}
+
+
+
+<!-- Vendor -->
+<script src="{% static 'assets/vendor/jquery/jquery.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.js' %}"></script>
+<script src="{% static 'assets/vendor/nanoscroller/nanoscroller.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+<script src="{% static 'assets/vendor/magnific-popup/magnific-popup.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery-placeholder/jquery.placeholder.js' %}"></script>
+
+<!-- Specific Page Vendor -->
+<script src="{% static 'assets/vendor/jquery-autosize/jquery.autosize.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js' %}"></script>
+
+<!-- Theme Base, Components and Settings -->
+<script src="{% static 'assets/javascripts/theme.js' %}"></script>
+
+<!-- Theme Custom -->
+<script src="{% static 'assets/javascripts/theme.custom.js' %}"></script>
+
+<!-- Theme Initialization Files -->
+<script src="{% static 'assets/javascripts/theme.init.js' %}"></script>
