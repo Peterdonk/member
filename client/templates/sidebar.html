@@ -269,7 +269,7 @@
 								</a>
 							</li>
 
-							<li class="nav-parent">
+							<li class="nav-parent {% if 'client/payments' in request.path %} nav-expanded nav-active {% elif 'client/payment-invoice' in request.path %}nav-expanded nav-active {% else %}{% endif %}">
 								<a>
 									<i class="fa fa-tasks" aria-hidden="true"></i>
 									<span>Payments</span>
@@ -287,7 +287,7 @@
 									</li>
 								</ul>
 							</li>
-							<li class="nav-parent">
+							<li class="nav-parent {% if 'client/service-status' in request.path %} nav-expanded nav-active {% elif 'client/add-service' in request.path %}nav-expanded nav-active {% elif 'client/service-tickets' in request.path  %}nav-expanded nav-active {% elif 'client/ticket-details' in request.path  %}nav-expanded nav-active{% else %}{% endif %}">
 								<a>
 									<i class="fa fa-list-alt" aria-hidden="true"></i>
 									<span>Service Plan</span>
@@ -304,7 +304,7 @@
 										</a>
 									</li>
 									<li {% if 'client/service-ticket' in request.path %}class="nav-active" {% endif %}>
-										<a href="/client/service-ticket">
+										<a href="/client/service-tickets">
 											Service Ticket
 										</a>
 									</li>

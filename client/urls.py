@@ -12,5 +12,8 @@ urlpatterns = [
     path('client/payment-invoice', views.payment_invoice, name='payment_invoice'),
     path('client/payments', views.payments, name='payments'),
     path('client/service-status', views.service_status, name='service_status'),
+    path('client/add-service', views.add_service, name='add_service'),
+    path('client/service-tickets', views.service_tickets, name='service_tickets'),
+    path('client/ticket-details', views.ticket_details, name='ticket_details'),
     
 ]

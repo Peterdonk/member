@@ -1,0 +1,343 @@
+{% extends "main_base.html" %}
+
+{% load static %}
+
+{% block pageCss %}
+<link rel="stylesheet" href="{% static 'client/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css' %}" />
+<link rel="stylesheet" href="{% static 'client/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css' %}" />
+<link rel="stylesheet" href="{% static 'client/assets/vendor/morris/morris.css' %}" />
+{% endblock pageCss %}
+
+{% block title %}
+<title>Dashboard</title>
+{% endblock title %}
+
+{% block bodyContent %}
+
+<section role="main" class="content-body">
+   <header class="page-header">
+      <h2>Panels</h2>
+
+      <div class="right-wrapper pull-right">
+         <ol class="breadcrumbs">
+            <li>
+               <a href="index.html">
+                  <i class="fa fa-home"></i>
+               </a>
+            </li>
+            <li><span>UI Elements</span></li>
+            <li><span>Panels</span></li>
+         </ol>
+
+         <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+      </div>
+   </header>
+
+   <!-- start: page -->
+   <div class="row">
+      <div class="col-lg-12">
+         <section class="panel">
+            <header class="panel-heading">
+               <div class="panel-actions">
+                  <a href="#" class="fa fa-caret-down" title="Hide Items"></a>
+                  <a href="#" class="fa fa-times" title="Close This"></a>
+               </div>
+
+               <h2 class="panel-title">Add Project</h2>
+            </header>
+            <div class="panel-body">
+               <form class="form-horizontal form-bordered" method="post">
+                  <div class="form-group">
+                     <label class="col-md-3 control-label" for="fullName">Choose Service</label>
+                     <div class="col-md-6">
+                        <select class="form-control">
+                           <option>Website Design</option>
+                           <option>Web Hosting</option>
+                        </select>
+                     </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label class="col-md-3 control-label" for="phoneNumber">Expected Start
+                        Date</label>
+                     <div class="col-md-6">
+                        <input class="form-control" id="phoneNumber" type="date" placeholder="Choose Date">
+                     </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label class="col-md-3 control-label" for="eMail">Project Name</label>
+                     <div class="col-md-6">
+                        <input type="text" value="Read-Only Input" id="eMail" class="form-control" placeholder="Enter Project Name">
+                     </div>
+                  </div>
+
+                  <div class="form-group" style="text-align:center" id="buttons_holder">
+
+                     <button class="btn btn-primary"><i class="fa fa-plus">&nbsp;Add
+                           Service</i></button>
+                  </div>
+
+               </form>
+            </div>
+         </section>
+
+      </div>
+   </div>
+
+
+
+   <h2>My Services</h2>
+   <p class="mb-lg">Below is the list of all services and their progress.</p>
+
+   <div class="row">
+      <div class="col-md-6">
+         <section class="panel panel-primary">
+            <header class="panel-heading">
+               <div class="panel-actions">
+                  <a href="#" class="fa fa-caret-down"></a>
+                  <a href="#" class="fa fa-times"></a>
+               </div>
+
+               <h2 class="panel-title">Title</h2>
+            </header>
+            <div class="panel-body">
+               <div class="row text-center">
+                  <div class="col-md-6">
+                     <div class="circular-bar">
+                        <div class="circular-bar-chart" data-percent="85" data-plugin-options='{ "barColor": "#0088CC", "delay": 300 }'>
+                           <strong> Progress</strong>
+                           <label><span class="percent">90</span>%</label>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="row">
+                        <div class="col-md-6">Date Registered: </div>
+                        <div class="col-md-6"> 18-Dec-2019</div>
+                     </div>
+
+                     <hr>
+
+                     <div class="row">
+                        <div class="col-md-6">Service: </div>
+                        <div class="col-md-6"> Web Designing</div>
+                     </div>
+                     <hr>
+
+                     <div class="row">
+                        <div class="col-md-6">Job Description: </div>
+                        <div class="col-md-6"> Design Bridal Website For Mark John</div>
+                     </div>
+
+                     <hr>
+
+                     <div class="row">
+                        <div class="col-md-6">Progress Percentage: </div>
+                        <div class="col-md-6 progress progress-striped light active ">
+                           <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60"
+                              aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
+                              85%
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+
+      <div class="col-md-6">
+         <section class="panel panel-success">
+            <header class="panel-heading">
+               <div class="panel-actions">
+                  <a href="#" class="fa fa-caret-down"></a>
+                  <a href="#" class="fa fa-times"></a>
+               </div>
+
+               <h2 class="panel-title">Title</h2>
+
+            </header>
+            <div class="panel-body">
+               <div class="row text-center">
+                  <div class="col-md-6">
+                     <div class="circular-bar">
+                        <div class="circular-bar-chart" data-percent="85" data-plugin-options='{ "barColor": "#0088CC", "delay": 300 }'>
+                           <strong> Progress</strong>
+                           <label><span class="percent">90</span>%</label>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="row">
+                        <div class="col-md-6">Date Registered: </div>
+                        <div class="col-md-6"> 18-Dec-2019</div>
+                     </div>
+
+                     <hr>
+
+                     <div class="row">
+                        <div class="col-md-6">Service: </div>
+                        <div class="col-md-6"> Web Designing</div>
+                     </div>
+                     <hr>
+
+                     <div class="row">
+                        <div class="col-md-6">Job Description: </div>
+                        <div class="col-md-6"> Design Bridal Website For Mark John</div>
+                     </div>
+
+                     <hr>
+
+                     <div class="row">
+                        <div class="col-md-6">Progress Percentage: </div>
+                        <div class="col-md-6 progress progress-striped light active ">
+                           <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60"
+                              aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
+                              85%
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+   </div>
+   <!-- end: page -->
+</section>
+</div>
+
+<aside id="sidebar-right" class="sidebar-right">
+   <div class="nano">
+      <div class="nano-content">
+         <a href="#" class="mobile-close visible-xs">
+            Collapse <i class="fa fa-chevron-right"></i>
+         </a>
+
+         <div class="sidebar-right-wrapper">
+
+            <div class="sidebar-widget widget-calendar">
+               <h6>Upcoming Tasks</h6>
+               <div data-plugin-datepicker data-plugin-skin="dark"></div>
+
+               <ul>
+                  <li>
+                     <time datetime="2014-04-19T00:00+00:00">04/19/2014</time>
+                     <span>Company Meeting</span>
+                  </li>
+               </ul>
+            </div>
+
+            <div class="sidebar-widget widget-friends">
+               <h6>Friends</h6>
+               <ul>
+                  <li class="status-online">
+                     <figure class="profile-picture">
+                        <img src="assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                     </figure>
+                     <div class="profile-info">
+                        <span class="name">Joseph Doe Junior</span>
+                        <span class="title">Hey, how are you?</span>
+                     </div>
+                  </li>
+                  <li class="status-online">
+                     <figure class="profile-picture">
+                        <img src="assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                     </figure>
+                     <div class="profile-info">
+                        <span class="name">Joseph Doe Junior</span>
+                        <span class="title">Hey, how are you?</span>
+                     </div>
+                  </li>
+                  <li class="status-offline">
+                     <figure class="profile-picture">
+                        <img src="assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                     </figure>
+                     <div class="profile-info">
+                        <span class="name">Joseph Doe Junior</span>
+                        <span class="title">Hey, how are you?</span>
+                     </div>
+                  </li>
+                  <li class="status-offline">
+                     <figure class="profile-picture">
+                        <img src="assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                     </figure>
+                     <div class="profile-info">
+                        <span class="name">Joseph Doe Junior</span>
+                        <span class="title">Hey, how are you?</span>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</aside>
+</section>
+
+
+
+<!-- Preloader -->
+<div id="preloader">
+   <div class="sk-cube-grid">
+      <div class="sk-cube sk-cube1"></div>
+      <div class="sk-cube sk-cube2"></div>
+      <div class="sk-cube sk-cube3"></div>
+      <div class="sk-cube sk-cube4"></div>
+      <div class="sk-cube sk-cube5"></div>
+      <div class="sk-cube sk-cube6"></div>
+      <div class="sk-cube sk-cube7"></div>
+      <div class="sk-cube sk-cube8"></div>
+      <div class="sk-cube sk-cube9"></div>
+   </div>
+</div>
+<!-- /Preloader -->
+
+{% endblock bodyContent %}
+
+
+
+
+{% block javascriptFiles %}
+
+
+<!-- Vendor -->
+<script src="{% static 'client/assets/vendor/jquery/jquery.js' %} "></script>
+<script src="{% static 'client/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js' %}"></script>
+<script src="{% static 'client/assets/vendor/bootstrap/js/bootstrap.js' %}"></script>
+<script src="{% static 'client/assets/vendor/nanoscroller/nanoscroller.js' %}"></script>
+<script src="{% static 'client/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+<script src="{% static 'client/assets/vendor/magnific-popup/magnific-popup.js' %}"></script>
+<script src="{% static 'client/assets/vendor/jquery-placeholder/jquery.placeholder.js' %}"></script>
+
+<!-- Specific Page Vendor -->
+<script src="{% static 'client/assets/vendor/jquery-appear/jquery.appear.js' %}"></script>
+<script src="{% static 'client/assets/vendor/jquery-easypiechart/jquery.easypiechart.js' %}"></script>
+<script src="{% static 'client/assets/vendor/flot/jquery.flot.js' %}"></script>
+<script src="{% static 'client/assets/vendor/flot-tooltip/jquery.flot.tooltip.js' %}"></script>
+<script src="{% static 'client/assets/vendor/flot/jquery.flot.pie.js' %}"></script>
+<script src="{% static 'client/assets/vendor/flot/jquery.flot.categories.js' %}"></script>
+<script src="{% static 'client/assets/vendor/flot/jquery.flot.resize.js' %}"></script>
+<script src="{% static 'client/assets/vendor/jquery-sparkline/jquery.sparkline.js' %}"></script>
+<script src="{% static 'client/assets/vendor/raphael/raphael.js' %}"></script>
+<script src="{% static 'client/assets/vendor/morris/morris.js' %}"></script>
+<script src="{% static 'client/assets/vendor/gauge/gauge.js' %}"></script>
+<script src="{% static 'client/assets/vendor/snap-svg/snap.svg.js' %}"></script>
+<script src="{% static 'client/assets/vendor/liquid-meter/liquid.meter.js' %}"></script>
+
+<!-- Theme Base, Components and Settings -->
+<script src="{% static 'client/assets/javascripts/theme.js' %}"></script>
+
+<!-- Theme Custom -->
+<script src="{% static 'client/assets/javascripts/theme.custom.js' %}"></script>
+
+<!-- Theme Initialization Files -->
+<script src="{% static 'client/assets/javascripts/theme.init.js' %}"></script>
+
+
+
+{% endblock javascriptFiles %}
