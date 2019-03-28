@@ -15,7 +15,6 @@ urlpatterns = [
     path('client/service-tickets', include('client.urls'), name="service_tickets"),
     path('client/ticket-details', include('client.urls'), name="ticket_details"),
     path('client/signup/', include('client.urls')),
-    path('client/signup/addData/', include('client.urls')),
     path('client/login/',auth_views.LoginView.as_view(template_name='client/login.html'), name='login'),
     path('client/password-reset/',auth_views.PasswordResetView.as_view(template_name = 'client/password_reset.html'), name = 'password_reset'),
     path('client/password-reset/done',auth_views.PasswordResetDoneView.as_view(template_name = 'client/password_reset_done.html'), name= 'password_reset_done'),

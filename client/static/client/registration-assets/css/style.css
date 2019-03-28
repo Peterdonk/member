@@ -245,8 +245,9 @@ img {
 #down_text>a:hover {
     color: #18132f;
     cursor: pointer;
-    transition:1s
+    transition: 1s
 }
+
 
 /*--end reset--*/
 
@@ -266,6 +267,7 @@ body {
 input.form-control.rad_status {
     height: 20px;
 }
+
 
 /*-- main -*/
 
@@ -415,7 +417,7 @@ input.form-control.rad_status {
 }
 
 .social-text {
-   text-align: center;
+    text-align: center;
     width: 100%;
 }
 
@@ -603,7 +605,6 @@ input.reminder {
 /*-- responsive --*/
 
 @media(max-width:1440px) {
-
     .top-grids-left,
     .top-grids-right {
         width: 70%;
@@ -632,20 +633,17 @@ input.reminder {
     .social-text {
         width: 40%;
     }
-
     .social-icons {
         width: 60%;
     }
 }
 
 @media(max-width:667px) {
-
     .signin-form h2,
     .signin-form h3,
     .signin-form h3 {
         font-size: 1em;
     }
-
     .main-agile h1 {
         font-size: 2.5em;
     }
@@ -655,24 +653,20 @@ input.reminder {
     .social-text {
         width: 30%;
     }
-
     .social-icons {
         width: 70%;
     }
 }
 
 @media(max-width:600px) {
-
     .top-grids-left,
     .top-grids-right {
         width: 100%;
         float: none;
     }
-
     .top-grids-right {
         margin: 2em 0 0 0em;
     }
-
     .signin-form h2,
     .signin-form h3,
     .signin-form h3 {
@@ -684,15 +678,12 @@ input.reminder {
     .main-agile h1 {
         font-size: 2em;
     }
-
     .social-text {
         width: 35%;
     }
-
     .social-icons {
         width: 65%;
     }
-
     .signin-form h2,
     .signin-form h3,
     .signin-form h3 {
@@ -710,26 +701,22 @@ input.reminder {
     .main-agile h1 {
         font-size: 1.7em;
     }
-
     .social-text {
         width: 100%;
         float: none;
         text-align: center;
         margin: 0 0 1em 0;
     }
-
     .social-icons {
         width: 100%;
         float: none;
         text-align: center;
     }
-
     .signin-form h2,
     .signin-form h3,
     .signin-form h3 {
         font-size: 1em;
     }
-
     .top-grids {
         margin: 1em 0 0 0;
     }
