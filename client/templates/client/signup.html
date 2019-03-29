@@ -68,7 +68,7 @@
                                 <div>
                                     <div style="text-align:center;margin:10px"><img src="{% static 'client/landing-assets/img/log.png' %}" height="75px"></div>
                                     <h2>Sign Up Form</h2>
-                                    <form id="signin" action="." method="post" class="main-form" data-parsley-validate="">
+                                    <form action="." method="post" class="main-form" data-parsley-validate="">
                                         {% csrf_token %}
                                         <div class="row mb-2 mt-2">
                                             <div class="col-md-6">
@@ -109,10 +109,10 @@
                                         </div>
                                         <div class="row mb-2 mt-2">
                                             <div class="col-md-6">
-                                                <input type="password" class="form-control" name="client_password" placeholder="Password" id="client_password" required="required" minlength="6">
+                                                <input type="password" class="form-control org_password" name="client_password" placeholder="Password" id="client_password" required="required" minlength="6">
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="password" class="form-control" name="client_confirm_password" placeholder="Confirm Password" id="client_confirm_password" required="required" data-parsley-equalto="#client_password">
+                                                <input type="password" class="form-control" name="client_confirm_password" placeholder="Confirm Password" id="client_confirm_password" required="required" data-parsley-equalto=".org_password">
                                             </div>
                                         </div>
                                         <br>

@@ -14,5 +14,6 @@ urlpatterns = [
     path('client/add-service', views.add_service, name='add_service'),
     path('client/service-tickets', views.service_tickets, name='service_tickets'),
     path('client/ticket-details', views.ticket_details, name='ticket_details'),
+    path('client/logged_in', views.logged_in, name='logged_in'),
     
 ]

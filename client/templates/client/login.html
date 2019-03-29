@@ -11,6 +11,13 @@
                         <div style="text-align:center;margin:10px"><img src="{% static 'client/landing-assets/img/log.png' %}" height="70px"></div>
                         <h2>Sign In Form</h2>
                         <form id="signin" method="post" class="main-form" data-parsley-validate="">
+       <!--                      {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %} -->
                             {% csrf_token %}
                             <input type="text" name="username" id="id_username" placeholder="User Name" required="">
                             <input type="password" name="password" id="id_password" placeholder="Password" required="">
