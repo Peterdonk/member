@@ -8,6 +8,7 @@ from django.contrib.auth.hashers import make_password,check_password
 from django.contrib.auth.models import User
 from django.contrib import messages
 
+
 from client.views import login
 
 from .forms import ClientSignupForm
@@ -31,16 +32,13 @@ def login(request):
             if user.is_active:
                 auth_login(request,user)
                 print("User Found")
-                # return render('client/dashboard/')
+                return render('client/dashboard/')
         else:
-            print("User not found")
-            # return render('dashboard')
-            messages.add_message(request, messages.INFO, 'Hello world.')
-
-            return render(request, 'client/signup.html',{'form':form})
+            print('Something')
+            return redirect('signup')
     else:
         form = AuthenticationForm()
-        # return render(request, 'client/login')
+        return render(request,'client/login.html',{'form':form})
 
 @login_required
 def logged_in(request):
