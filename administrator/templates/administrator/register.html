@@ -1,0 +1,77 @@
+{%  load static  %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Member | Admin Registration</title>
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'administrator/admin-files/css/bootstrap.css'  %}">
+
+
+
+</head>
+
+
+
+<body style="background-color:#f2f2f2 ">
+
+{% for error in form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        {{error}}
+    </div>
+{% endfor %}
+
+<div class="row">
+<div class="col-md-12">
+<div class="col-md-4 offset-md-4">
+<div class="card mt-5">
+<article class="card-body">
+	<h4 class="card-title text-center mb-4 mt-1">Admin Sign Up</h4>
+	<hr>
+	<form method="post" action=".">
+		{% csrf_token  %}
+	<div class="form-group">
+		<div class="input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+		<input name="admin_username" class="form-control" placeholder="Username" type="text" required="required">
+	</div>
+</div>
+<div class="form-group">
+	<div class="input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+		<input name="admin_email" class="form-control" placeholder="Email" type="email" required="required">
+	</div> <!-- input-group.// -->
+	</div> <!-- form-group// -->
+	<div class="form-group">
+	<div class="input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		 </div>
+	    <input class="form-control" placeholder="******" type="password" required="required" name="admin_password">
+	</div> <!-- input-group.// -->
+	</div> <!-- form-group// -->
+	<div class="form-group">
+	<button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+	</div> <!-- form-group// -->
+	</form>
+</article>
+</div> <!-- card.// -->
+
+</div>
+</div>
+</div>
+
+
+<script type="text/javascript" src="{%  static 'administrator/admin-files/js/jquery.js'  %}"></script>
+<script type="text/javascript" src="{%  static 'administrator/admin-files/js/bootstrap.min.js'  %}">
+</script>
+</body>
+</html>
+
+
+
+

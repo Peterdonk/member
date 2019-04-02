@@ -34,8 +34,8 @@ def login(request):
                 print("User Found")
                 return render('client/dashboard/')
         else:
-            print('Something')
-            return redirect('signup')
+            form = AuthenticationForm()
+            return render(request,'client/login.html',{'form':form})
     else:
         form = AuthenticationForm()
         return render(request,'client/login.html',{'form':form})
@@ -44,7 +44,7 @@ def login(request):
 def logged_in(request):
     if request.user.is_superuser:
         # user is an admin
-        # return redirect("admin_list")
+        return redirect("admin_dashboard")
         print("This is admin")
     else:
         return redirect('/client/dashboard')
