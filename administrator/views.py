@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -15,8 +16,8 @@ def register(request):
 	                email=get_admin_email,password=get_admin_password,is_superuser=1)
 		if admin_add:
 			return redirect('login')
-
 	return render(request,'administrator/register.html')
 
+@login_required
 def admin_dashboard(request):
 	return render(request,'administrator/index.html')

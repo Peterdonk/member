@@ -31,7 +31,6 @@ def login(request):
         if user is not None:
             if user.is_active:
                 auth_login(request,user)
-                print("User Found")
                 return render('client/dashboard/')
         else:
             form = AuthenticationForm()
@@ -44,8 +43,7 @@ def login(request):
 def logged_in(request):
     if request.user.is_superuser:
         # user is an admin
-        return redirect("admin_dashboard")
-        print("This is admin")
+        return redirect("/administrator/dashboard")
     else:
         return redirect('/client/dashboard')
 
@@ -85,10 +83,10 @@ def client_signup(request):
             form.save()
         else:
             print("Unable to save")
+            form = ClientSignupForm()
 
-        return render(request,'client/signup.html')
+        return render(request,'client/login.html',{'form':form})
     else:
-
         return render(request,'client/signup.html')
 
 
