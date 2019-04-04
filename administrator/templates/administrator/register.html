@@ -3,23 +3,17 @@
 <html>
 <head>
 	<title>Member | Admin Registration</title>
-
-
-<link rel="stylesheet" type="text/css" href="{% static 'administrator/admin-files/css/bootstrap.css'  %}">
-
-
-
+<link rel="stylesheet" type="text/css" href="{% static 'administrator/admin-files/css/bootstrap.min.css'  %}">
 </head>
-
-
-
 <body style="background-color:#f2f2f2 ">
 
-{% for error in form.non_field_errors %}
-    <div class="alert alert-danger" role="alert">
-        {{error}}
-    </div>
-{% endfor %}
+{% if messages %}
+<ul class="list-unstyled">
+    {% for message in messages %}
+    <li><div class="alert alert-danger" role="alert"> {{ message }}  </div></li>
+    {% endfor %}
+</ul>
+{% endif %}
 
 <div class="row">
 <div class="col-md-12">
@@ -54,6 +48,16 @@
 	    <input class="form-control" placeholder="******" type="password" required="required" name="admin_password">
 	</div> <!-- input-group.// -->
 	</div> <!-- form-group// -->
+
+	<div class="form-group">
+	<div class="input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		 </div>
+	    <input class="form-control" placeholder="Enter Secret Key" type="text" required="required" name="admin_secret_key">
+	</div> <!-- input-group.// -->
+	</div> <!-- form-group// -->
+
 	<div class="form-group">
 	<button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
 	</div> <!-- form-group// -->
@@ -66,11 +70,12 @@
 </div>
 
 
-<script type="text/javascript" src="{%  static 'administrator/admin-files/js/jquery.js'  %}"></script>
+<script type="text/javascript" src="{%  static 'administrator/admin-files/js/jquery.min.js'  %}"></script>
 <script type="text/javascript" src="{%  static 'administrator/admin-files/js/bootstrap.min.js'  %}">
 </script>
 </body>
 </html>
+
 
 
 

@@ -2,6 +2,16 @@
 <title>SignUp</title>
 {% endblock title %} {% block bodyContent %}
 <!-- main -->
+
+{% if messages %}
+<ul class="list-unstyled">
+    {% for message in messages %}
+   <div class="alert alert-danger" role="alert"> <li> {{ message }}  </li></div>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
 <div class="main-agile" style="padding: 0 !important">
     <div class="content" style="width:70% !important">
         <div class="top-grids">

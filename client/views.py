@@ -64,28 +64,35 @@ def client_signup(request):
         get_raw_client_service = request.POST.get("client_service")
         get_raw_client_digital_address = request.POST.get("client_digital_address")
 
-        #Insert into users table
-        user = User.objects.create_user(username=get_raw_username,
-                email=get_raw_email,password=get_raw_password)
+        # check if user is already in database
 
-        # Getting Just Inserted user ID
-        user_id = user.id
-
-        #Create a new instance of the ClientSignupForm
-        updated_data = request.POST.copy()
-        updated_data.update(
-            {'client_user':user_id}
-            )
-
-        form = ClientSignupForm(data = updated_data)
-
-        if form.is_valid():
-            form.save()
+        if User.objects.filter(username=get_raw_username,email=get_raw_email).exists():
+            messages.error(request, 'Username Or Email Already Exists in the database.')
+            return render(request,'client/signup.html')
         else:
-            print("Unable to save")
-            form = ClientSignupForm()
 
-        return render(request,'client/login.html',{'form':form})
+            #Insert into users table
+            user = User.objects.create_user(username=get_raw_username,
+                    email=get_raw_email,password=get_raw_password)
+
+            # Getting Just Inserted user ID
+            user_id = user.id
+
+            #Create a new instance of the ClientSignupForm
+            updated_data = request.POST.copy()
+            updated_data.update(
+                {'client_user':user_id}
+                )
+
+            form = ClientSignupForm(data = updated_data)
+
+            if form.is_valid():
+                form.save()
+            else:
+                print("Unable to save")
+                form = ClientSignupForm()
+
+            return render(request,'client/login.html',{'form':form})
     else:
         return render(request,'client/signup.html')
 
