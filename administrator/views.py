@@ -50,7 +50,7 @@ def view_account(request):
 	return render(request,"administrator/view_payments.html")
 
 @login_required
-def manage_account(request):
+def manage_account(request, id):
 	return render(request,"administrator/make_payments.html")
 
 @login_required
@@ -58,7 +58,7 @@ def view_invoice(request):
 	return render(request,"administrator/view_invoice.html")
 
 @login_required
-def manage_invoice(request):
+def manage_invoice(request, id):
 	return render(request,"administrator/manage_invoice.html")
 
 @login_required
@@ -66,7 +66,7 @@ def view_tickets(request):
 	return render(request,"administrator/view_tickets.html")
 
 @login_required
-def manage_tickets(request):
+def manage_tickets(request, id):
 	return render(request,"administrator/manage_tickets.html")
 
 @login_required
@@ -77,3 +77,6 @@ def view_inventory(request):
 def manage_inventory(request):
 	return render(request,"administrator/manage_inventory.html")
 
+@login_required
+def edit_client(request, id):
+	return render(request,"administrator/edit_client.html")

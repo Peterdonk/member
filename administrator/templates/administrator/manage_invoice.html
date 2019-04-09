@@ -1,6 +1,172 @@
 {% extends "admin_base.html" %}
+
+{% load static  %}
+
 	
- 
+{% block customCss %}   
+
+<link rel="stylesheet" type="text/css" href="{% static 'administrator/admin-files/plugins/datatables/datatables.min.css'  %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'administrator/admin-files/plugins/datatables/dataTables.bootstrap4.min.css'  %}">
+
+{% endblock customCss %}
+
+
+
+ {% block pageNameBig %}Manage Invoice {% endblock pageNameBig %}
+  {% block pageNameSmall %}Manage Invoice {% endblock pageNameSmall %}
 {%  block bodyContent %}
 
+<div class="col-md-12">						
+									<div class="card mb-3">
+										
+											
+										<div class="card-body">
+											
+											  <div class="container" id="HTMLtoPDF">
+
+      <div class="row pad-top-botm ">
+         <div class="col-lg-6 col-md-6 col-sm-6 ">
+            <img src="{% static 'client/assets/images/logoo.png' %}" style="padding-bottom:20px;" width="150px" height="150px" />
+         </div>
+         <div class="col-lg-6 col-md-6 col-sm-6">
+
+            <strong> Step Network </strong>
+            <br />
+            <i>Address :</i> P.O.Box NG 597 Nungua
+            <br />
+            ER-00-0129,
+            <br />
+            Accra, Greater - Accra,
+            <br />
+            Ghana
+
+         </div>
+      </div>
+      <div class="row text-center contact-info">
+         <div class="col-lg-12 col-md-12 col-sm-12">
+            <hr />
+            <span>
+               <strong>Email : </strong> info@snetgh.net || snetgh@gmail.com
+            </span>
+            <span>
+               <strong>Call : </strong> +233 - 245- 908- 362
+            </span>
+            <span>
+               <strong>Website : </strong> http://www.snetgh.net
+            </span>
+            <hr />
+         </div>
+      </div>
+      <div class="row pad-top-botm client-info">
+         <div class="col-lg-6 col-md-6 col-sm-6">
+            <h4> <strong>Client Information</strong></h4>
+            <strong> Jhon Deo Chuixae</strong>
+            <br />
+            <b>Address :</b> 145/908 , New York Lane,
+            <br />
+            Ghana.
+            <br />
+            <b>Call :</b> +90-908-567-0987
+            <br />
+            <b>E-mail :</b> info@clientdomain.com
+         </div>
+         <div class="col-lg-6 col-md-6 col-sm-6">
+
+            <h4> <strong>Payment Details </strong></h4>
+            <b> Invoice Details </b>
+            <br />
+            Invoice ID : <u>GHxs990</u>
+            <br />
+            <b>Payment Status </b>
+            <br />
+            <input type="text" name="" placeholder="Purchase Date">
+            <br />
+            <input type="text" name="" placeholder="Due Date">
+         </div>
+      </div>
+      <div class="row">
+      	<div style="float: right" class="mt-2 mb-2 "><button class="btn btn-primary" id="add-row"><i class="fa fa-plus-circle"></i>&nbsp;Add New Row</button></div>
+         <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="table-responsive">
+               <table class="table table-striped table-bordered table-hover" id="tbl_invoice">
+                  <thead>
+                     <tr>
+                       
+                        <th>Description</th>
+                        <th>Total - GH <img src="assets/images/cedi.png" width="10px" height="20px"></th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        
+                        <td>Website Design</td>
+                        <td>50</td>
+                     </tr>
+                     <tr>
+                      
+                        <td>Plugin Dev.</td>
+                        <td>100</td>
+                     </tr>
+                     <tr>
+               
+                        <td>Hosting Domains</td>
+                        <td>400</td>
+
+                     </tr>
+
+                  </tbody>
+               </table>
+            </div>
+            <hr />
+            <div class="ttl-amts">
+               <h5> Total Amount : 900 </h5>
+            </div>
+            <hr />
+            <div class="ttl-amts">
+               <h5> Tax : 90 USD ( by 10 % on bill ) </h5>
+            </div>
+            <hr />
+            <div class="ttl-amts">
+               <h4> <strong>Bill Amount : 990 USD</strong> </h4>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-lg-12 col-md-12 col-sm-12">
+            <strong> Important: </strong>
+            <ol>
+               <li>
+                  This is an electronic generated invoice so doesn't require any signature.
+
+               </li>
+               <li>
+                  Please read all terms and polices on www.member.snetgh.net for returns, replacement and other
+                  issues.
+
+               </li>
+            </ol>
+         </div>
+      </div>
+      <div class="row pad-top-botm text-right">
+         <div class="col-lg-12 col-md-12 col-sm-12">
+            <hr />
+            <button class="btn btn-primary btn-md" id="">Save Invoice</button>
+            <a href="{% url 'view_invoice' %}" class="btn btn-danger btn-md" id="">Cancel</a>
+            &nbsp;&nbsp;&nbsp;
+         </div>
+      </div>
+											
+										</div>							
+									</div><!-- end card-->					
+								</div>
+
 {%  endblock bodyContent %}
+
+{%  block customJs %}
+<script type="text/javascript" src="{% static 'administrator/admin-files/plugins/datatables/datatables.min.js'  %}"></script>
+<script type="text/javascript" src="{% static 'administrator/admin-files/plugins/datatables/dataTables.bootstrap4.min.js'  %}"></script>
+
+<script type="text/javascript" src="{% static 'administrator/admin-files/js/custom/add.js'  %}"></script>
+
+{%  endblock customJs %}
