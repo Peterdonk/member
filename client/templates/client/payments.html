@@ -17,8 +17,6 @@
 
 <section role="main" class="content-body">
    <header class="page-header">
-      <h2>Basic Forms</h2>
-
       <div class="right-wrapper pull-right">
          <ol class="breadcrumbs">
             <li>
@@ -26,8 +24,8 @@
                   <i class="fa fa-home"></i>
                </a>
             </li>
-            <li><span>Forms</span></li>
-            <li><span>Basic</span></li>
+            <li><span>Payments</span></li>
+            <li><span>View Payments</span></li>
          </ol>
 
          <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -45,7 +43,7 @@
                   <a href="#" class="fa fa-times" title="Close This"></a>
                </div>
 
-               <h2 class="panel-title">Form Elements</h2>
+               <h2 class="panel-title">Payment History</h2>
             </header>
             <div class="panel-body">
                <h4>REGISTRATION SUMMARY</h4>
@@ -55,7 +53,7 @@
                   <label for="staticEmail" class="col-sm-2 col-form-label" style="font-weight:bold">Date
                      Registered</label>
                   <div class="col-sm-8">
-                     <span>18-Dec-2019</span>
+                     <span>{{ user_info.date_joined }}</span>
                   </div>
                </div>
 
@@ -65,7 +63,7 @@
                   <label for="staticEmail" class="col-sm-2 col-form-label" style="font-weight:bold">Service
                   </label>
                   <div class="col-sm-8">
-                     <span>Web Designing</span>
+                     <span>{{account_info.service_type.services_name}}</span>
                   </div>
                </div>
 
@@ -75,7 +73,7 @@
                   <label for="staticEmail" class="col-sm-2 col-form-label" style="font-weight:bold">Job Description
                   </label>
                   <div class="col-sm-8">
-                     <span>Design Bridal Website For Mark John</span>
+                     <span>{{account_info.job_description}}</span>
                   </div>
                </div>
 
@@ -85,19 +83,19 @@
                   <label for="staticEmail" class="col-sm-2 col-form-label" style="font-weight:bold">Total Amount
                      Charged
                   </label>
-                  <div class="col-sm-8"><span>GH&nbsp;<img src="assets/images/cedi.png" width="13px" height="20px">&nbsp;<span
-                           style="color:#d2322d;font-weight: bold">5000</span>
+                  <div class="col-sm-8"><span>GHC&nbsp;&nbsp;<span
+                           style="color:#d2322d;font-weight: bold">{{account_info.total_amount}}</span>
                         &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; </span>
 
                      <span>Total
-                        Amount Paid : GH&nbsp;<span>&nbsp;<img src="assets/images/cedi.png" width="13px" height="20px">&nbsp;<span
-                              style="color:#d2322d;font-weight: bold">4000</span></span></span>
+                        Amount Paid : GHC&nbsp;<span>&nbsp;&nbsp;<span
+                              style="color:#d2322d;font-weight: bold">{{account_info.amount_paid}}</span></span></span>
                      &nbsp;&nbsp;&nbsp;
                      |&nbsp;&nbsp;
                      <span>Total
                         Amount
-                        Remaining : GH&nbsp;<span>&nbsp;<img src="assets/images/cedi.png" width="13px" height="20px">&nbsp;<span
-                              style="color:#d2322d;font-weight: bold">500</span></span></span>
+                        Remaining : GHC&nbsp;<span>&nbsp;&nbsp;<span
+                              style="color:#d2322d;font-weight: bold">{{account_info.remaining_balance}}</span></span></span>
                   </div>
 
                </div>
@@ -108,13 +106,20 @@
                   <label for="staticEmail" class="col-sm-2 col-form-label" style="font-weight:bold">Initial Deposit
                   </label>
                   <div class="col-sm-8">
-                     <span>Due Date : <strong style="color:#d2322d">12/12/2019</strong></span>&nbsp;
+                     <span>Due Date : <strong style="color:#d2322d">{{due_date|date:"D d M Y"}}</strong></span>&nbsp;
                      | &nbsp;
-                     <span>Amount Expected : </span> GH&nbsp;<span style="color:#d2322d;font-weight: bold"><img src="assets/images/cedi.png"
-                           width="13px" height="20px">&nbsp;1000
+                     <span>Amount Expected : </span> GHC&nbsp;<span style="color:#d2322d;font-weight: bold">
+                         &nbsp;{{initial_deposit}}
                      </span>
                      &nbsp;&nbsp; | &nbsp;<span>Status:
-                        &nbsp;</span><label class="label label-success">Payed</label>
+                        &nbsp;</span>
+                        {% if account_info.amount_paid != '0' %}
+                     <label class="label label-success">{{account_info.account_status.account_status_name}}{{account_info.amount_paid}}
+                     </label>
+                     {% else %}
+                     <label class="label label-warning">{{account_info.account_status.account_status_name}}
+                     </label>
+                     {% endif %}
                   </div>
                </div>
 
@@ -128,35 +133,19 @@
                      <table class="table">
                         <thead>
                            <tr>
-                              <th scope="col">#</th>
                               <th scope="col">Date</th>
-                              <th scope="col">Service</th>
+                              <th scope="col">Payment Mode</th>
                               <th scope="col">Amount Paid</th>
                            </tr>
                         </thead>
                         <tbody>
+                           {% for payment in payment_history %}
                            <tr>
-                              <th scope="row">1</th>
-                              <td>12-Jan-2019</td>
-                              <td>Website Designing</td>
-                              <td>100</td>
-
-
+                              <th scope="row">{{payment.payment_date|date:"D d M Y"}}</th>
+                              <td>{{payment.payment_mode.mode_name}}</td>
+                              <td>{{payment.amount_paid}}</td>
                            </tr>
-                           <tr>
-                              <th scope="row">2</th>
-                              <td>15-Jan-2019</td>
-                              <td>Website Designing</td>
-                              <td>100</td>
-
-                           </tr>
-                           <tr>
-                              <th scope="row">3</th>
-                              <td>20-Feb-2019</td>
-                              <td>Website Designing</td>
-                              <td>100</td>
-
-                           </tr>
+                           {% endfor %}
                         </tbody>
                      </table>
 

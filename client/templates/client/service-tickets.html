@@ -131,27 +131,31 @@
               <div>
             
             
-                  <form class="form-horizontal form-bordered">
+                  <form class="form-horizontal form-bordered" id="add_ticket_form" method="POST">
+                     {% csrf_token %}
                         <div class="form-group">
+                           <input type="hidden" name="client_u_id" value="{{user.id}}" id="txt_u_id">
                               <label class="col-md-3 control-label" style="color:#5bc0de">Ticket ID</label>
                               <div class="col-md-7">
-                                    <input type="text" name="fullname" class="form-control" placeholder="Ticket ID" required=""  value="GT-F56JH" disabled="disabled">
+                                    <input type="text" name="txt_ticketID" class="form-control" placeholder="Ticket ID" required=""  value="" disabled="disabled" id="txt_ticketID">
                               </div>
                            </div>
                            <div class="form-group">
                                  <label class="col-md-3 control-label" style="color:#5bc0de">Problem Title</label>
                                  <div class="col-md-7">
-                                       <input type="text" name="fullname" class="form-control" placeholder="Enter problem title" required="">
+                                       <input type="text" name="txt_problemTitle" class="form-control" placeholder="Enter problem title" required="" id="txt_problemTitle">
                                  </div>
                               </div>
+                     
                      <div class="form-group">
                         <label class="col-md-3 control-label" style="color:#5bc0de">Problem Description</label>
                         <div class="col-md-7">
-                           <div class="summernote" data-plugin-summernote data-plugin-options='{ "height": 180, "codemirror": { "theme": "ambiance" } }'>Start typing...</div>
-                           <div style="float:right;padding-right:20px;padding-top:20px"><button class="btn btn-primary btn-md"> Send &nbsp;<i class="fa fa-paper-plane"></i></button></div>
+                          <textarea class="form-control mb-3" name="txt_problemDesc" placeholder="Problem Description" id="txt_problemDesc"></textarea>
+
+                          <button class="btn btn-primary btn-md" type="submit"> Send &nbsp;<i class="fa fa-paper-plane"></i></button></div>
                            
                         </div>
-                     </div>
+                 
                      
                   </form>
             
@@ -325,9 +329,6 @@
 		
 		<!-- Theme Base, Components and Settings -->
 		<script src="{% static 'client/assets/javascripts/theme.js' %}"></script>
-		
-		<!-- Theme Custom -->
-		<script src="{% static 'client/assets/javascripts/theme.custom.js' %}"></script>
 		
 		<!-- Theme Initialization Files -->
 		<script src="{% static 'client/assets/javascripts/theme.init.js' %}"></script>

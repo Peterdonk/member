@@ -12,6 +12,9 @@
 {% endif %}
 
 
+
+
+
 <div class="main-agile" style="padding: 0 !important">
     <div class="content" style="width:70% !important">
         <div class="top-grids">
@@ -42,9 +45,9 @@
                                             <div class="col-md-6">
                                                 <select class="form-control sign_up_select" name="client_service" required="required">
                                                     <option disabled="disabled" selected="selected">Choose Service</option>
-                                                    <option value="0">Web Design</option>
-                                                    <option value="1">Networking</option>
-                                                    <option value="2">Consultation</option>
+                                                     {% for service in services %}
+                                                        <option value="{{ service.services_id }}">{{ service.services_name }}</option>
+                                                        {% endfor %}
                                                 </select>
                                             </div>
                                         </div>
@@ -103,9 +106,9 @@
                                             <div class="col-md-6">
                                                 <select class="form-control sign_up_select" name="client_service" required="required">
                                                     <option disabled="disabled" selected="selected">Choose Service</option>
-                                                    <option value="0">Web Design</option>
-                                                    <option value="1">Networking</option>
-                                                    <option value="2">Consultation</option>
+                                                     {% for service in services %}
+                                                        <option value="{{ service.services_id }}">{{ service.services_name }}</option>
+                                                        {% endfor %}
                                                 </select>
                                             </div>
                                         </div>
@@ -139,7 +142,7 @@
                     <div class="signin-firm">
                         <div class="social-grids">
                             <div class="social-text" style="width:100%;float:center">
-                                <div class="text-center" id="down_text"><a href="/client/login">Already Have An Account
+                                <div class="text-center" id="down_text"><a href="/client/login/">Already Have An Account
                                         ..SignIn</a></div>
                             </div>
                             <div class="clear"> </div>

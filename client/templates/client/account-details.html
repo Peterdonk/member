@@ -6,7 +6,6 @@
 {% endblock title %} {% block bodyContent %}
 <section role="main" class="content-body">
     <header class="page-header">
-        <h2>Basic Forms</h2>
         <div class="right-wrapper pull-right">
             <ol class="breadcrumbs">
                 <li>
@@ -14,8 +13,8 @@
                         <i class="fa fa-home"></i>
                     </a>
                 </li>
-                <li><span>Forms</span></li>
-                <li><span>Basic</span></li>
+                <li><span>Dashboard</span></li>
+                <li><span>General Information</span></li>
             </ol>
             <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
         </div>
@@ -26,49 +25,67 @@
             <section class="panel">
                 <header class="panel-heading">
                     <div class="panel-actions">
-                        <a href="#" class="fa fa-edit" id="edit_button" title="Edit Items"></a>
+                        <a href="javascript:void(0)" class="fa fa-edit" id="edit_button" title="Edit Items"></a>
                         <a href="#" class="fa fa-caret-down" title="Hide Items"></a>
                         <a href="#" class="fa fa-times" title="Close This"></a>
                     </div>
-                    <h2 class="panel-title">Form Elements</h2>
+                    <h2 class="panel-title">General Information</h2>
                 </header>
                 <div class="panel-body">
-                    <form class="form-horizontal form-bordered" method="post">
+                    <form class="form-horizontal form-bordered" method="post" id="update_details_form">
+                        {% csrf_token %}
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="fullName">Full Name</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="fullName" placeholder="Full Name" readonly="readonly">
+                                <input type="hidden" id="txt_u_id" value="{{user.id}}" name="client_u_id">
+                                <input type="text" class="form-control" id="fullName" placeholder="Full Name" readonly="readonly" value="{{registrationInformation.client_name}}" name="client_name">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="phoneNumber">Phone Number</label>
                             <div class="col-md-6">
-                                <input class="form-control" id="phoneNumber" type="text" placeholder="Phone Number" readonly="readonly">
+                                <input class="form-control" id="phoneNumber" type="text" placeholder="Phone Number" readonly="readonly" value="{{registrationInformation.client_telephone}}" name="client_telephone">
                             </div>
                         </div>
+                        {%  if registrationInformation.client_contact_person is not None %}
+                         <div class="form-group">
+                            <label class="col-md-3 control-label" for="contact_person">Contact Person</label>
+                            <div class="col-md-6">
+                                <input type="text" id="contact_person" class="form-control" placeholder="Contact Person" readonly="readonly" value="{{registrationInformation.client_contact_person}}" name="client_contact_person">
+                            </div>
+                        </div>
+
+                         <div class="form-group">
+                            <label class="col-md-3 control-label" for="contact_telephone">Contact Telephone</label>
+                            <div class="col-md-6">
+                                <input type="text" id="contact_telephone" class="form-control" placeholder="Telephone" readonly="readonly" value="{{registrationInformation.client_contact_telephone}}" name="client_contact_telephone">
+                            </div>
+                        </div>
+
+                        {%  endif %}
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="eMail">E-Mail</label>
                             <div class="col-md-6">
-                                <input type="text" value="Read-Only Input" id="eMail" class="form-control" placeholder="E-Mail" readonly="readonly">
+                                <input type="text" id="eMail" class="form-control" placeholder="E-Mail" readonly="readonly" value="{{initital_registration_info.email}}" name="email">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="digitalAddress">Digital
                            Address</label>
                             <div class="col-md-6">
-                                <input class="form-control" id="digitalAddress" type="text" value="This is focused..." readonly="readonly">
+                                <input class="form-control" id="digitalAddress" type="text" readonly="readonly" value="{{registrationInformation.client_digital_address}}" name="client_digital_address">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="service">Service</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="placeholder" id="service" readonly="readonly">
+                                <input type="text" class="form-control" placeholder="placeholder" id="service" readonly="readonly" value="{{registrationInformation.client_service.services_name}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="username">Username</label>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" placeholder="" id="username" readonly="readonly">
+                                <input type="text" class="form-control" placeholder="" id="username" readonly="readonly" value="{{initital_registration_info.username}}">
                             </div>
                         </div>
                         <div class="form-group" style="text-align:center" id="buttons_holder">

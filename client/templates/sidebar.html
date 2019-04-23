@@ -1,10 +1,11 @@
 <section class="body">
 
+{% load static %}
 	<!-- start: header -->
 	<header class="header">
 		<div class="logo-container">
 			<a href="../" class="logo">
-				<img src="assets/images/logo.png" height="35" alt="JSOFT Admin" />
+				<img src="{% static 'client/landing-assets/img/log_2.png' %}" height="35" alt="Logo" />
 			</a>
 			<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html"
 			 data-fire-event="sidebar-left-opened">

@@ -16,7 +16,6 @@
 
 <section role="main" class="content-body">
    <header class="page-header">
-      <h2>Charts</h2>
 
       <div class="right-wrapper pull-right">
          <ol class="breadcrumbs">
@@ -25,8 +24,8 @@
                   <i class="fa fa-home"></i>
                </a>
             </li>
-            <li><span>UI Elements</span></li>
-            <li><span>Charts</span></li>
+            <li><span>Service Plan</span></li>
+            <li><span>Service Status</span></li>
          </ol>
 
          <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -55,39 +54,39 @@
                      <div class="row text-center">
                         <div class="col-md-6">
                            <div class="circular-bar">
-                              <div class="circular-bar-chart" data-percent="85" data-plugin-options='{ "barColor": "#0088CC", "delay": 300 }'>
+                              <div class="circular-bar-chart" data-percent="{{service_status.service_progress}}" data-plugin-options='{ "barColor": "#0088CC", "delay": 300 }'>
                                  <strong> Progress</strong>
-                                 <label><span class="percent">90</span>%</label>
+                                 <label><span class="percent">{{service_status.service_progress}}</span>%</label>
                               </div>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="row">
                               <div class="col-md-6">Date Registered: </div>
-                              <div class="col-md-6"> 18-Dec-2019</div>
+                              <div class="col-md-6"> {{user_info.date_joined|date:"D d M Y"}}</div>
                            </div>
 
                            <hr>
 
                            <div class="row">
                               <div class="col-md-6">Service: </div>
-                              <div class="col-md-6"> Web Designing</div>
+                              <div class="col-md-6"> {{service_status.service_type.services_name}}</div>
                            </div>
                            <hr>
 
                            <div class="row">
                               <div class="col-md-6">Job Description: </div>
-                              <div class="col-md-6"> Design Bridal Website For Mark John</div>
+                              <div class="col-md-6"> {{account_info.job_description}}</div>
                            </div>
 
                            <hr>
 
                            <div class="row">
                               <div class="col-md-6">Progress Percentage: </div>
-                              <div class="col-md-6 progress progress-striped light active ">
+                              <div class="col-md-5 progress progress-striped light active ">
                                  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
-                                    85%
+                                    aria-valuemin="0" aria-valuemax="100" style="margin-left:-14px;width: {{service_status.service_progress}}%;">
+                                    {{service_status.service_progress}}%
                                  </div>
                               </div>
                            </div>

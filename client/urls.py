@@ -4,15 +4,16 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('client/signup/', views.client_signup, name='client_signup'),
+    path('', views.IndexView.as_view(), name="LandingPage"),
+    path('client/login', views.LoginView.as_view(), name="LoginPage"),
+    path('client/signup/', views.SignupView.as_view(),name="SignupPage"),
     path('client/dashboard/', views.dashboard, name='dashboard'),
-    path('client/account-details', views.account_details, name='account_details'),
+    path('client/account-details', views.AccountDetails.as_view(), name='AccountDetails'),
     path('client/payment-invoice', views.payment_invoice, name='payment_invoice'),
-    path('client/payments', views.payments, name='payments'),
-    path('client/service-status', views.service_status, name='service_status'),
+    path('client/payments', views.Payments.as_view(), name='Payments'),
+    path('client/service-status', views.ServiceStatus.as_view(), name='ServiceStatus'),
     path('client/add-service', views.add_service, name='add_service'),
-    path('client/service-tickets', views.service_tickets, name='service_tickets'),
+    path('client/service-tickets', views.ServiceTickets.as_view(), name='ServiceTickets'),
     path('client/ticket-details', views.ticket_details, name='ticket_details'),
     path('client/logged_in', views.logged_in, name='logged_in'),
     
