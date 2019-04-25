@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block title %}
+    <title>Member</title>
+    {% endblock title %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="snetgh.net, snet, website, developers, software development, networking" />
+    <!-- Custom Theme files -->
+    <link href="{% static 'client/registration-assets/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+    <!-- Support Theme files -->
+     <link href="{% static 'client/registration-assets/css/support.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <!-- //Custom Theme files -->
+    <!-- font-awesome icons -->
+    <link href="{% static 'client/registration-assets/css/font-awesome.css' %}" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <link href="{% static 'client/registration-assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- //Bootstrap css -->
+
+    <style type="text/css">
+
+
+    </style>
+
+
+
+
+    {% block cssFiles %} {% endblock cssFiles %}
+
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+</head>
+
+
+<body style="background-color: #41b1f3">
+
+
+
+
+    {% block bodyContent %} {% endblock bodyContent %} {% block javascriptFiles %} {% endblock javascriptFiles %}
+
+<script src="{% static 'client/registration-assets/js/jquery.js' %}"></script>
+<script src="{% static 'client/registration-assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'client/registration-assets/js/custom_js.js' %}"></script>
+<script src="{% static 'client/registration-assets/js/parsley.js' %}"></script>
+</body>
+
+</html>

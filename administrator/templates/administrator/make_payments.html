@@ -1,0 +1,78 @@
+{% extends "admin_base.html" %}
+
+{% load static  %}
+
+	
+{% block customCss %}   
+
+<link rel="stylesheet" type="text/css" href="{% static 'administrator/admin-files/plugins/datatables/datatables.min.css'  %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'administrator/admin-files/plugins/datatables/dataTables.bootstrap4.min.css'  %}">
+
+{% endblock customCss %}
+
+
+
+ {% block pageNameBig %}Make Payment {% endblock pageNameBig %}
+  {% block pageNameSmall %}Make Payment {% endblock pageNameSmall %}
+{%  block bodyContent %}
+
+<div class="col-md-8 offset-md-2">						
+						<div class="card mb-3">
+						
+								
+							<div class="card-body">
+						
+
+											<form autocomplete="off" action="." method="post">
+								  <div class="form-row">
+									<div class="form-group col-md-6">
+									  <label for="client_full_name">Payment Date</label>
+									  <input type="text" name="" class="form-control" placeholder="Enter Amount Paying" value="{% now 'jS F Y H:i' %}" disabled="disabled">
+									</div>
+									<div class="form-group col-md-6">
+									  <label for="client_username">In Favour Of</label>
+									  <input type="text" name="" class="form-control" placeholder="Enter Person Full Name" value="" disabled="disabled">
+									</div>
+								  </div>
+
+								    <div class="form-row">
+									<div class="form-group col-md-6">
+									 <label for="digital_address">Payment Method</label>
+									<select class="form-control">
+															<option value="0">Cash</option>
+															<option value="1">Cheque</option>
+															<option value="3">Mobile Money</option>
+														</select>
+									</div>
+									<div class="form-group col-md-6">
+									  <label for="phone">Amount Paying</label>
+									<input type="text" name="" class="form-control" placeholder="Enter Amount Paying">
+									</div>
+								  </div>
+
+
+								  <hr>
+								  <div class="text-right">
+								  	<span style="float: left">Recorded By: <strong>{{user.username}}</strong></span>
+								  <button type="submit" class="btn btn-primary">Save Details</button>
+								  <a href="{% url 'view_account'  %}" class="btn btn-danger">Cancel</a>
+								  </div>
+								</form>
+											
+											
+											
+										
+							</div>							
+						</div><!-- end card-->					
+                    </div>
+
+{%  endblock bodyContent %}
+
+{%  block customJs %}
+<script type="text/javascript" src="{% static 'administrator/admin-files/plugins/datatables/datatables.min.js'  %}"></script>
+<script type="text/javascript" src="{% static 'administrator/admin-files/plugins/datatables/dataTables.bootstrap4.min.js'  %}"></script>
+
+<script type="text/javascript" src="{% static 'administrator/admin-files/js/custom/dataTables.js'  %}"></script>
+
+{%  endblock customJs %}

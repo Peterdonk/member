@@ -1,0 +1,73 @@
+<!-- Left Sidebar -->
+	<div class="left main-sidebar">
+	
+		<div class="sidebar-inner leftscroll">
+
+			<div id="sidebar-menu">
+        
+			<ul>
+					<li class="submenu">
+						<a {% if 'dashboard' in request.path %}class="active" {% endif %} href="index.html"><i class="fa fa-fw fa-dashboard"></i><span> Dashboard </span> </a>
+                    </li>
+					
+					<li class="submenu">
+                        <a href="#" {% if 'client' in request.path %}class="active" {% endif %}  ><i class="fa fa-fw fa-users"></i> <span> Client </span> <span class="menu-arrow"></span></a>
+							<ul class="list-unstyled">
+								<li {% if 'client/pending' in request.path %}class="active" {% endif %}><a href="/administrator/client/pending">Pending Clients</a></li>
+								<li {% if 'client/registered' in request.path %}class="active" {% endif %}><a href="/administrator/client/registered">Registered Clients</a></li>
+                                <li {% if 'client/manage' in request.path %}class="active" {% endif %}><a href="/administrator/client/manage">Manage Clients</a></li>
+							</ul>
+                    </li>
+
+                    <li class="submenu">
+                        <a href="#" {% if 'account' in request.path %}class="active" {% endif %}><i class="fa fa-fw fa-money"></i> <span> Accounts </span> <span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">
+                                <li {% if 'account/view' in request.path %}class="active" {% endif %}><a href="/administrator/account/view">View Payments</a></li>
+                                <li {% if 'account/payment' in request.path %}class="active" {% endif %}><a href="/administrator/account/payment">Make Payments</a></li>
+                            </ul>
+                    </li>
+
+                    <li class="submenu">
+                        <a href="#" {% if 'invoice' in request.path %}class="active" {% endif %}><i class="fa fa-fw fa-vcard"></i> <span> Invoice </span> <span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">
+                                <li {% if 'invoice/view' in request.path %}class="active" {% endif %}><a href="/administrator/invoice/view">View Invoice</a></li>
+                                <li {% if 'invoice/manage' in request.path %}class="active" {% endif %}><a href="/administrator/invoice/manage">Manage Invoice</a></li>
+                            </ul>
+                    </li>
+
+                    <li class="submenu">
+                        <a href="#" {% if 'ticket' in request.path %}class="active" {% endif %}><i class="fa fa-fw fa-ticket"></i> <span> Ticket </span> <span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">
+                                <li {% if 'ticket/view' in request.path %}class="active" {% endif %}><a href="/administrator/ticket/view">View Tickets</a></li>
+                                <li {% if 'ticket/manage' in request.path %}class="active" {% endif %}><a href="/administrator/ticket/manage">Manage Ticket</a></li>
+                            </ul>
+                    </li>
+
+                     <li class="submenu">
+                        <a href="#" {% if 'inventory' in request.path %}class="active" {% endif %}><i class="fa fa-fw fa-book"></i> <span> Inventory </span> <span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">
+                                <li {% if 'inventory/view' in request.path %}class="active" {% endif %}><a href="/administrator/inventory/view">View Inventory</a></li>
+                                <li {% if 'inventory/manage' in request.path %}class="active" {% endif %}><a href="/administrator/inventory/manage">Manage Inventory</a></li>
+                            </ul>
+                    </li>
+
+                    <li class="submenu" {% if 'client/print' in request.path %}class="active" {% endif %}>
+                        <a href="/administrator/client/print"><i class="fa fa-fw fa-print"></i><span> Print Client Form </span> </a>
+                    </li>
+
+                    <li class="submenu">
+                        <a href="/client/login"><i class="fa fa-fw fa-lock"></i><span> Logout </span> </a>
+                    </li>
+										
+            </ul>
+
+            <div class="clearfix"></div>
+
+			</div>
+        
+			<div class="clearfix"></div>
+
+		</div>
+
+	</div>
+	<!-- End Sidebar -->

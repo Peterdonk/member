@@ -1,0 +1,348 @@
+{% extends "main_base.html" %}
+
+{% load static %}
+
+{% block pageCss %}
+<link rel="stylesheet" href="{% static 'client/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css' %}" />
+<link rel="stylesheet" href="{% static 'client/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css' %}" />
+<link rel="stylesheet" href="{% static 'client/assets/vendor/morris/morris.css' %}" />
+
+<!-- Specific Page Vendor CSS -->
+<link rel="stylesheet" href="{% static 'client/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css' %}" />
+<link rel="stylesheet" href="{% static 'client/assets/vendor/summernote/summernote.css' %}" />
+<link rel="stylesheet" href="{% static 'client/assets/vendor/summernote/summernote-bs3.css' %}" />
+
+<!-- Theme CSS -->
+<link rel="stylesheet" href="{% static 'client/assets/stylesheets/theme.css' %}" />
+
+<!-- Skin CSS -->
+<link rel="stylesheet" href="{% static 'client/assets/stylesheets/skins/default.css' %}" />
+
+
+<style type="text/css">
+   .tabs {
+      display: block;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      flex-wrap: wrap;
+      margin: 0;
+      overflow: hidden;
+   }
+
+   .tabs [class^="tab"] label,
+   .tabs [class*=" tab"] label {
+      color: #0088cc;
+      cursor: pointer;
+      display: block;
+      font-size: 1.2em;
+      font-weight: 800;
+      line-height: 1em;
+      padding: 2rem 0;
+      text-align: center;
+   }
+
+   .tabs [class^="tab"] [type="radio"],
+   .tabs [class*=" tab"] [type="radio"] {
+      border-bottom: 1px solid rgba(239, 237, 239, 0.5);
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      display: block;
+      width: 100%;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+   }
+
+   .tabs [class^="tab"] [type="radio"]:hover,
+   .tabs [class^="tab"] [type="radio"]:focus,
+   .tabs [class*=" tab"] [type="radio"]:hover,
+   .tabs [class*=" tab"] [type="radio"]:focus {
+      border-bottom: 1px solid #c3c3c3;
+   }
+
+   .tabs [class^="tab"] [type="radio"]:checked,
+   .tabs [class*=" tab"] [type="radio"]:checked {
+      border-bottom: 2px solid #0088cc;
+   }
+
+   .tabs [class^="tab"] [type="radio"]:checked+div,
+   .tabs [class*=" tab"] [type="radio"]:checked+div {
+      opacity: 1;
+   }
+
+   .tabs [class^="tab"] [type="radio"]+div,
+   .tabs [class*=" tab"] [type="radio"]+div {
+      display: block;
+      opacity: 0;
+      padding: 2rem 0;
+      width: 90%;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+   }
+
+   .tabs .tab-2 {
+      width: 50%;
+   }
+
+   .tabs .tab-2 [type="radio"]+div {
+      width: 200%;
+      margin-left: 200%;
+   }
+
+   .tabs .tab-2 [type="radio"]:checked+div {
+      margin-left: 0;
+   }
+
+   .tabs .tab-2:last-child [type="radio"]+div {
+      margin-left: 100%;
+   }
+
+   .tabs .tab-2:last-child [type="radio"]:checked+div {
+      margin-left: -100%;
+   }
+</style>
+
+
+
+{% endblock pageCss %}
+
+{% block title %}
+<title>Dashboard</title>
+{% endblock title %}
+
+{% block bodyContent %}
+
+<section role="main" class="content-body">
+
+   <section class="panel">
+      <div class="panel-body">
+         <div class="tabs">
+            <div class="tab-2">
+              <label for="tab2-1">New Ticket</label>
+              <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
+              <div>
+            
+            
+                  <form class="form-horizontal form-bordered" id="add_ticket_form" method="POST">
+                     {% csrf_token %}
+                        <div class="form-group">
+                           <input type="hidden" name="client_u_id" value="{{user.id}}" id="txt_u_id">
+                            <input type="hidden" name="ticketID" value="" id="ticketID">
+                              <label class="col-md-3 control-label" style="color:#5bc0de">Ticket ID</label>
+                              <div class="col-md-7">
+                                    <input type="text" name="txt_ticketID" class="form-control" placeholder="Ticket ID" required=""  value="" disabled="disabled" id="txt_ticketID">
+                              </div>
+                           </div>
+                           <div class="form-group">
+                                 <label class="col-md-3 control-label" style="color:#5bc0de">Problem Title</label>
+                                 <div class="col-md-7">
+                                       <input type="text" name="txt_problemTitle" class="form-control" placeholder="Enter problem title" required="" id="txt_problemTitle">
+                                 </div>
+                              </div>
+                     
+                     <div class="form-group">
+                        <label class="col-md-3 control-label" style="color:#5bc0de">Problem Description</label>
+                        <div class="col-md-7 text-right">
+                          <textarea class="form-control mb-3" name="txt_problemDesc" placeholder="Problem Description" id="txt_problemDesc"></textarea>
+                          <br>
+                          <button class="btn btn-primary btn-md" type="submit"> Send &nbsp;<i class="fa fa-paper-plane"></i></button></div>
+                           
+                        </div>
+                 
+                     
+                  </form>
+            
+
+               
+
+               
+              </div>
+            </div>
+            <div class="tab-2">
+              <label for="tab2-2">Old Tickets</label>
+              <input id="tab2-2" name="tabs-two" type="radio">
+              <div>
+                
+                  <div class="table-responsive">
+                        <table class="table table-hover mb-none">
+                           <thead>
+                              <tr>
+                                 <th>Ticket #</th>
+                                 <th>Date Opened</th>
+                                 <th>Title</th>
+                                 <th>Status</th>
+                                 <th>Date Closed</th>
+                                 <th>View Details</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              {%  for ticket in ticket_info  %}
+                               <tr>
+                                 <td>{{ticket.problem_ticket_id}}</td>
+                                 <td>{{ticket.date_opened|date:"D d M Y"}}</td>
+                                 <td>{{ticket.problem_title}}</td>
+                                 <td>
+                                    {% if ticket.problem_status.account_status_name == 'Disabled' %}
+                                    <span class="label label-success">Closed</span>
+                                    {% else %}
+                                    <span class="label label-danger">Opened</span>
+                                    {% endif %}
+                                 </td>
+                                 <td>
+                                 {% if ticket.problem_status.account_status_name == 'Disabled' %}
+                                   {{ ticket.date_closed}}
+                                    {% else %}
+                                    Not Yet
+                                    {% endif %}
+                                    </td>
+
+                              </td>
+                                 <td class="actions-hover actions-fade">
+                                       <a  href="/client/ticket-details/{{ticket.problem_ticket_id}}" target="_blank"><button class="btn btn-primary btn-md">View Details</button> </a>
+                                    </td>
+                              </tr>
+                              {% endfor %}
+                             
+                             
+                           </tbody>
+                        </table>
+                     </div>
+
+            
+              </div>
+            </div>
+          </div>
+      </div>
+   </section>
+
+      <!-- end: page -->
+   </section>
+</div>
+
+<aside id="sidebar-right" class="sidebar-right">
+   <div class="nano">
+      <div class="nano-content">
+         <a href="#" class="mobile-close visible-xs">
+            Collapse <i class="fa fa-chevron-right"></i>
+         </a>
+
+         <div class="sidebar-right-wrapper">
+
+            <div class="sidebar-widget widget-calendar">
+               <h6>Upcoming Tasks</h6>
+               <div data-plugin-datepicker data-plugin-skin="dark" ></div>
+
+               <ul>
+                  <li>
+                     <time datetime="2014-04-19T00:00+00:00">04/19/2014</time>
+                     <span>Company Meeting</span>
+                  </li>
+               </ul>
+            </div>
+
+            <div class="sidebar-widget widget-friends">
+               <h6>Friends</h6>
+               <ul>
+                  <li class="status-online">
+                     <figure class="profile-picture">
+                        <img src="assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                     </figure>
+                     <div class="profile-info">
+                        <span class="name">Joseph Doe Junior</span>
+                        <span class="title">Hey, how are you?</span>
+                     </div>
+                  </li>
+                  <li class="status-online">
+                     <figure class="profile-picture">
+                        <img src="assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                     </figure>
+                     <div class="profile-info">
+                        <span class="name">Joseph Doe Junior</span>
+                        <span class="title">Hey, how are you?</span>
+                     </div>
+                  </li>
+                  <li class="status-offline">
+                     <figure class="profile-picture">
+                        <img src="assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                     </figure>
+                     <div class="profile-info">
+                        <span class="name">Joseph Doe Junior</span>
+                        <span class="title">Hey, how are you?</span>
+                     </div>
+                  </li>
+                  <li class="status-offline">
+                     <figure class="profile-picture">
+                        <img src="assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                     </figure>
+                     <div class="profile-info">
+                        <span class="name">Joseph Doe Junior</span>
+                        <span class="title">Hey, how are you?</span>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</aside>
+</section>
+
+<!-- Preloader -->
+<div id="preloader">
+   <div class="sk-cube-grid">
+      <div class="sk-cube sk-cube1"></div>
+      <div class="sk-cube sk-cube2"></div>
+      <div class="sk-cube sk-cube3"></div>
+      <div class="sk-cube sk-cube4"></div>
+      <div class="sk-cube sk-cube5"></div>
+      <div class="sk-cube sk-cube6"></div>
+      <div class="sk-cube sk-cube7"></div>
+      <div class="sk-cube sk-cube8"></div>
+      <div class="sk-cube sk-cube9"></div>
+   </div>
+</div>
+
+<!-- /Preloader -->
+
+		<!-- Vendor -->
+		<script src="{% static 'client/assets/vendor/jquery/jquery.js' %}"></script>
+		<script src="{% static 'client/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js' %}"></script>
+		<script src="{% static 'client/assets/vendor/bootstrap/js/bootstrap.js' %}"></script>
+		<script src="{% static 'client/assets/vendor/nanoscroller/nanoscroller.js' %}"></script>
+		<script src="{% static 'client/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+		<script src="{% static 'client/assets/vendor/magnific-popup/magnific-popup.js' %}"></script>
+		<script src="{% static 'client/assets/vendor/jquery-placeholder/jquery.placeholder.js' %}"></script>
+		
+		<!-- Specific Page Vendor -->
+		<script src="{% static 'client/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js' %}"></script>
+		<script src="{% static 'client/assets/vendor/summernote/summernote.js' %}"></script>
+		
+		<!-- Theme Base, Components and Settings -->
+		<script src="{% static 'client/assets/javascripts/theme.js' %}"></script>
+		
+		<!-- Theme Initialization Files -->
+		<script src="{% static 'client/assets/javascripts/theme.init.js' %}"></script>
+
+
+{% endblock bodyContent %}
+
+
+
+
+{% block javascriptFiles %}
+
+
+
+
+
+
+{% endblock javascriptFiles %}

@@ -1,0 +1,91 @@
+{% extends "admin_base.html" %}
+
+{% load static  %}
+
+	
+{% block customCss %}   
+
+<link rel="stylesheet" type="text/css" href="{% static 'administrator/admin-files/plugins/datatables/datatables.min.css'  %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'administrator/admin-files/plugins/datatables/dataTables.bootstrap4.min.css'  %}">
+
+{% endblock customCss %}
+
+
+
+ {% block pageNameBig %}Manage Clients {% endblock pageNameBig %}
+  {% block pageNameSmall %}Manage Clients {% endblock pageNameSmall %}
+{%  block bodyContent %}
+
+<div class="col-md-12">						
+									<div class="card mb-3">
+										
+											
+										<div class="card-body">
+											
+											<table class="table table-responsive-xl table-striped" id="selected_table">
+											  <thead>
+												<tr>
+												  <th scope="col">#</th>
+												  <th scope="col">Full Name</th>
+												  <th scope="col">Username</th>
+												  <th scope="col">Service</th>
+												  <th scope="col">Status</th>
+												  <th scope="col">Actions</th>
+												</tr>
+											  </thead>
+											  <tbody>
+												<tr>
+												  <th scope="row">1</th>
+												  <td>Mark</td>
+												  <td>Otto</td>
+												  <td>@mdo</td>
+												  <td>@mdo</td>
+												  <td>  <div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Actions
+    </button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <a class="dropdown-item" href="manage/edit/1"><i class="fa fa-edit"></i>&nbsp;Edit Client</a>
+      <a class="dropdown-item" href="#"><i class="fa fa-trash"></i>&nbsp;Delete Client</a>
+    </div>
+  </div></td>
+												 
+
+												</tr>
+
+												<tr>
+												  <th scope="row">1</th>
+												  <td>Mark</td>
+												  <td>Otto</td>
+												  <td>@mdo</td>
+												  <td>@mdo</td>
+												  <td>  <div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Actions
+    </button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <a class="dropdown-item" href="#"><i class="fa fa-edit"></i>&nbsp;Edit Client</a>
+      <a class="dropdown-item" href="#"><i class="fa fa-trash"></i>&nbsp;Delete Client</a>
+    </div>
+  </div></td>
+												 
+
+												</tr>
+												
+											  </tbody>
+											</table>
+											
+										</div>							
+									</div><!-- end card-->					
+								</div>
+
+{%  endblock bodyContent %}
+
+{%  block customJs %}
+<script type="text/javascript" src="{% static 'administrator/admin-files/plugins/datatables/datatables.min.js'  %}"></script>
+<script type="text/javascript" src="{% static 'administrator/admin-files/plugins/datatables/dataTables.bootstrap4.min.js'  %}"></script>
+
+<script type="text/javascript" src="{% static 'administrator/admin-files/js/custom/dataTables.js'  %}"></script>
+
+{%  endblock customJs %}

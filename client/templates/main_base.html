@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="{% static 'client/assets/vendor/bootstrap/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'client/assets/vendor/font-awesome/css/font-awesome.css' %}" />
+    <link rel="stylesheet" href="{% static 'client/assets/vendor/magnific-popup/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'client/assets/vendor/bootstrap-datepicker/css/datepicker3.css' %}" />
+    <link rel="stylesheet" href="{% static 'client/assets/css/main.css' %}" />
+     <!-- Alert Css -->
+    <link rel="stylesheet" href="{% static 'client/assets/css/iziToast.min.css' %}" />
+    <script src="{% static 'client/assets/vendor/jquery/jquery.js' %}"></script>
+    <script>
+        ///////////////////////////
+        // Preloader
+        $(window).on('load', function() {
+            $("#preloader").delay(600).fadeOut();
+        });
+    </script>
+    <!-- Specific Page Vendor CSS -->
+    {% block pageCss %} {% endblock pageCss%}
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{% static 'client/assets/stylesheets/theme.css' %}" />
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="{% static 'client/assets/stylesheets/skins/default.css' %}" />
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="{% static 'client/assets/stylesheets/theme-custom.css' %}">
+    <!-- Head Libs -->
+    <script src="{% static 'client/assets/vendor/modernizr/modernizr.js' %}"></script>
+    {% block title %}
+    <title>Login</title>
+    {% endblock title %} {% block cssFiles %} {% endblock cssFiles %}
+</head>
+{% include "sidebar.html" %}
+
+<body>
+    {% block bodyContent %} {% endblock bodyContent %}
+    <!-- Vendor -->
+    <script src="{% static 'client/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js' %}"></script>
+    <script src="{% static 'client/assets/vendor/bootstrap/js/bootstrap.js' %}"></script>
+    <script src="{% static 'client/assets/javascripts/iziToast.min.js' %}"></script>
+    <script src="{% static 'client/assets/vendor/nanoscroller/nanoscroller.js' %}"></script>
+    <script src="{% static 'client/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'client/assets/vendor/magnific-popup/magnific-popup.js' %}"></script>
+    <script src="{% static 'client/assets/vendor/jquery-placeholder/jquery.placeholder.js' %}"></script>
+    <!-- Specific Page Vendor -->
+    {% block pageJavascript %} {% endblock pageJavascript %}
+    <!-- Theme Base, Components and Settings -->
+    <script src="{% static 'client/assets/javascripts/theme.js' %}"></script>
+    <!-- Theme Custom -->
+    <script src="{% static 'client/assets/javascripts/theme.custom.js' %}"></script>
+    <!-- Theme Initialization Files -->
+    <script src="{% static 'client/assets/javascripts/theme.init.js' %}"></script>
+    <!-- Examples -->
+    <script src="{%static 'client/assets/javascripts/dashboard/examples.dashboard.js' %}"></script>
+    {% block javascriptFiles %} {% endblock javascriptFiles %}
+</body>
+
+</html>

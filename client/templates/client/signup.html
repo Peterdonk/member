@@ -1,0 +1,164 @@
+{% extends "registration_base.html" %} {% load staticfiles %} {% block title %}
+<title>SignUp</title>
+{% endblock title %} {% block bodyContent %}
+<!-- main -->
+
+{% if messages %}
+<ul class="list-unstyled">
+    {% for message in messages %}
+   <div class="alert alert-danger" role="alert"> <li> {{ message }}  </li></div>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+
+
+
+<div class="main-agile" style="padding: 0 !important">
+    <div class="content" style="width:70% !important">
+        <div class="top-grids">
+            <div class="top-grids-left">
+                <div class="signin-form-grid">
+                    <div class="signin-form" >
+                        <div class="tabs">
+                            <div class="tab-2">
+                                <label for="tab2-1">Individual</label>
+                                <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
+                                <div>
+                                    <div style="text-align:center;margin:10px"><img src="{% static 'client/landing-assets/img/log.png' %}" height="75px"></div>
+                                    <h2>Sign Up Form</h2>
+                                    <form id="signin" action="." method="post"  class="main-form" data-parsley-validate="">
+                                        {% csrf_token %}
+                                        <div class="row mb-2 mt-2">
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name="client_name" placeholder="Full Name" id="client_name" required="required">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" required="required" class="form-control" name="client_telephone" placeholder="Telephone" data-parsley-pattern="^\d{3}\d{4}\d{3}$">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2 mt-2">
+                                            <div class="col-md-6">
+                                                <input type="email" class="form-control" name="client_email" placeholder="Email" required="required">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-control sign_up_select" name="client_service" required="required">
+                                                    <option disabled="disabled" selected="selected">Choose Service</option>
+                                                     {% for service in services %}
+                                                        <option value="{{ service.services_id }}">{{ service.services_name }}</option>
+                                                        {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2 mt-2">
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name="client_digital_address" placeholder="Digital Address">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name="client_username" placeholder="Username" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2 mt-2">
+                                            <div class="col-md-6">
+                                                <input type="password" id="client_password" class="form-control" required="required" name="client_password" placeholder="Password" minlength="6">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="password" class="form-control" name="client_confirm_password" required="required" placeholder="Confirm Password" data-parsley-equalto="#client_password">
+                                            </div>
+                                        </div>
+                                        <br>
+                                         <div class="invalid-form-error-message"></div>
+                                        <div class="mt-2">
+                                            <input type="submit" class="btn btn-primary validate" value="SIGN UP" class="btn_submit">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-2">
+                                <label for="tab2-2">Organization </label>
+                                <input id="tab2-2" name="tabs-two" type="radio">
+                                <div>
+                                    <div style="text-align:center;margin:10px"><img src="{% static 'client/landing-assets/img/log.png' %}" height="75px"></div>
+                                    <h2>Sign Up Form</h2>
+                                    <form action="." method="post" class="main-form" data-parsley-validate="">
+                                        {% csrf_token %}
+                                        <div class="row mb-2 mt-2">
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name="client_name" placeholder="Full Name" id="client_name" required="required">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name="client_telephone" placeholder="Telephone" required="required" data-parsley-pattern="^\d{3}\d{4}\d{3}$">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2 mt-2" id="org">
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name="client_contact_person" placeholder="Contact Person" id="contact_person" required="required">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name="client_contact_telephone" placeholder="Telephone" id="contact_telephone" required="required" data-parsley-pattern="^\d{3}\d{4}\d{3}$">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2 mt-2">
+                                            <div class="col-md-6">
+                                                <input type="email" class="form-control" name="client_email" placeholder="Email" required="required">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-control sign_up_select" name="client_service" required="required">
+                                                    <option disabled="disabled" selected="selected">Choose Service</option>
+                                                     {% for service in services %}
+                                                        <option value="{{ service.services_id }}">{{ service.services_name }}</option>
+                                                        {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2 mt-2">
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name="client_digital_address" placeholder="Digital Address">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name="client_username" placeholder="Username" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2 mt-2">
+                                            <div class="col-md-6">
+                                                <input type="password" class="form-control org_password" name="client_password" placeholder="Password" id="client_password" required="required" minlength="6">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="password" class="form-control" name="client_confirm_password" placeholder="Confirm Password" id="client_confirm_password" required="required" data-parsley-equalto=".org_password">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="invalid-form-error-message"></div>
+                                        <div class="mt-2">
+                                            <input type="submit" class="btn btn-primary validate" value="SIGN UP" class="btn_submit">
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="signin-firm">
+                        <div class="social-grids">
+                            <div class="social-text" style="width:100%;float:center">
+                                <div class="text-center" id="down_text"><a href="/client/login/">Already Have An Account
+                                        ..SignIn</a></div>
+                            </div>
+                            <div class="clear"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p> © 2019 . All rights reserved | A Product of <a href="snetgh.net">Step Network</a></p>
+        </div>
+        <div class="clear"> </div>
+
+    </div>
+</div>
+
+<!-- //main -->
+
+{% block javascriptFiles %} {% endblock javascriptFiles %} {% endblock bodyContent %}
